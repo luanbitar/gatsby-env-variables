@@ -1,6 +1,6 @@
 {
   "name": "gatsby-env-variables",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Use your env variables in client side",
   "main": "index.js",
   "repository": "git@github.com:luanbitar/gatsby-env-variables.git",
@@ -9,8 +9,13 @@
   "keywords": [
     "gatsby",
     "gatsby-plugin",
-    "alias",
-    "import"
+    "gatsbyjs",
+		"environment",
+		"environments",
+		"environment-variable",
+		"environment-variables",
+		"variables",
+		"env"
   ],
   "peerDependencies": {
     "gatsby": ">2.0.0"
