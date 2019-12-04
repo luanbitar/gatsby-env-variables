@@ -51,7 +51,7 @@ BUILD_ENV=staging yarn start
 Use in client-side
 ```javascript
 function Example() {
-	return env.HAS_HEADER && <Header />
+	return process.env.HAS_HEADER && <Header />
 }
 ```
 

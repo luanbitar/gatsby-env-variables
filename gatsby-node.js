@@ -8,7 +8,7 @@ exports.onCreateWebpackConfig = ({ actions, plugins }, { envFolderPath = "" }) =
 	}).parsed
 
   const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`env.${next}`] = JSON.stringify(env[next])
+    prev[`process.env.${next}`] = JSON.stringify(env[next])
     return prev
   }, {})
 
