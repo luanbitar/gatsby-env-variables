@@ -17,12 +17,9 @@ or
 ## How to use
 
 Add the plugin to your `gatsby-config.js`.
-
 ```javascript
 module.exports = {
-  plugins: [
-		`gatsby-env-variables`
-	]
+  plugins: [`gatsby-env-variables`]
 }
 ```
 
@@ -51,7 +48,7 @@ BUILD_ENV=staging yarn start
 Use in client-side
 ```javascript
 function Example() {
-	return process.env.HAS_HEADER && <Header />
+  return process.env.HAS_HEADER && <Header />
 }
 ```
 
@@ -65,15 +62,16 @@ Example:
 ```javascript
 module.exports = {
   plugins: [
-		{
-			resolve: `gatsby-env-variables`,
-			options: {
-				envFolderPath: "src/env/"
-			}
-		}
-	]
+    {
+      resolve: `gatsby-env-variables`,
+      options: {
+        envFolderPath: "src/env/"
+      }
+    }
+  ]
 }
 ```
+
 ```bash
 project/
 ├── src/
@@ -83,9 +81,8 @@ project/
 │	│	└── .env.production
 ```
 
-
 ## Further reading
 
-Check out the [resolve section][1] of the Webpack config documentation for more information.
+Check out the [DefinePlugin section][1] of the Webpack config documentation for more information.
 
-[1]: https://webpack.js.org/configuration/resolve/#resolve-alias
+[1]: https://webpack.js.org/plugins/define-plugin/
