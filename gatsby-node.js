@@ -1,18 +1,28 @@
-exports.onCreateWebpackConfig = ({ actions, plugins }, { envFolderPath = "" }) => {
+exports.onCreateWebpackConfig = (
+  { actions, plugins, reporter },
+  { envFolderPath = "env/" }
+) => {
+  const activeEnv =
+    process.env.BUILD_ENV || process.env.NODE_ENV || "development"
 
-	const activeEnv = process.env.BUILD_ENV || process.env.NODE_ENV || "development"
-	console.log(`Using environment config: '${activeEnv}'`)
+  reporter.info(`Using environment variables config: '${activeEnv}'`)
 
-	const env = require("dotenv").config({
-		path: `${envFolderPath}.env.${activeEnv}`,
-	}).parsed
+  const envs = require("dotenv").config({
+    path: `${envFolderPath}.env.${activeEnv}`
+  }).parsed
 
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next])
-    return prev
+  const commonEnvs = require("dotenv").config({
+    path: `${envFolderPath}.env`
+  }).parsed
+
+  const mergedEnvs = Object.assign({}, commonEnvs, envs)
+
+  const envKeys = Object.keys(mergedEnvs).reduce((acc, envKey) => {
+    acc[envKey] = JSON.stringify(mergedEnvs[envKey])
+    return acc
   }, {})
 
   actions.setWebpackConfig({
-    plugins: [plugins.define(envKeys)],
+    plugins: [plugins.define(envKeys)]
   })
 }

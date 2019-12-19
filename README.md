@@ -17,38 +17,55 @@ or
 ## How to use
 
 Add the plugin to your `gatsby-config.js`.
+
 ```javascript
 module.exports = {
-  plugins: [`gatsby-env-variables`]
+  plugins: [
+    `gatsby-env-variables`
+  ]
 }
 ```
 
-Create your's `.env` files in root of your project
+Create your's `.env` files inside `env/` folder, on root of your project, file `.env` will be default variable values, if you chose other env, these variables will be merged
 
 ```bash
 project/
-│ package.json
-│ .env.development
-│ .env.staging
-└ .env.production
+├── env/
+  ├── .env
+  ├── .env.development
+  ├── .env.staging
+  └── .env.production
+```
+
+.env
+
+```env
+COMMON=default
 ```
 
 .env.staging
+
 ```env
+COMMON=staging
 HAS_HEADER=true
 ```
 
 Run your yarn/npm script with `BUILD_ENV` variable to chose your environment, default selected is `development`
 
 package.json
+
 ```bash
 BUILD_ENV=staging yarn start
 ```
 
 Use in client-side
+
 ```javascript
+/* globals HAS_HEADER, COMMON */
+
 function Example() {
-  return process.env.HAS_HEADER && <Header />
+  console.log(COMMON) // staging
+  return HAS_HEADER && <Header />
 }
 ```
 
@@ -59,13 +76,14 @@ function Example() {
 This options allows you to specify which folder will stay your `.env` files
 
 Example:
+
 ```javascript
 module.exports = {
   plugins: [
     {
       resolve: `gatsby-env-variables`,
       options: {
-        envFolderPath: "src/env/"
+        envFolderPath: `src/env/`
       }
     }
   ]
@@ -75,10 +93,37 @@ module.exports = {
 ```bash
 project/
 ├── src/
-│	├── env/
-│	│	├── .env.development
-│	│	├── .env.staging
-│	│	└── .env.production
+  ├── env/
+    ├── .env
+    ├── .env.development
+    ├── .env.staging
+    └── .env.production
+```
+
+Or you can use this option to rename to `config/` folder too
+
+Example:
+
+```javascript
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-env-variables`,
+      options: {
+        envFolderPath: `config/`
+      }
+    }
+  ]
+}
+```
+
+```bash
+project/
+├── config/
+  ├── .env
+  ├── .env.development
+  ├── .env.staging
+  └── .env.production
 ```
 
 ## Further reading
