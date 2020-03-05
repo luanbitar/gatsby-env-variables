@@ -16,12 +16,10 @@
     "environment-variables",
     "variables",
     "env",
+    "dynamic",
     "plugin"
   ],
   "peerDependencies": {
     "gatsby": ">2.0.0"
-  },
-  "dependencies": {
-    "dotenv": "8.2.0"
   }
 }
