@@ -1,15 +1,27 @@
-[![Version](https://img.shields.io/npm/v/gatsby-env-variables.svg)](https://www.npmjs.com/package/gatsby-env-variables)
-[![Downloads Total](https://img.shields.io/npm/dt/gatsby-env-variables.svg)](https://www.npmjs.com/package/gatsby-env-variables)
-
 <p align="center">
   <img src="illustration.svg" width="300">
 </p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/gatsby-env-variables">
+    <img src="https://img.shields.io/npm/v/gatsby-env-variables.svg">
+  </a>
+  <a href="https://www.npmjs.com/package/gatsby-env-variables">
+    <img src="https://img.shields.io/npm/dt/gatsby-env-variables.svg">
+  </a>
+</p>
 
-# gatsby-env-variables
+<p align="center">
+  <h1 align="center"> gatsby-env-variables </h1>
+</p>
 
-Webpack feature to provide your custom environment variables in client side
 
-Use `BUILD_ENV` to chose wich environment file to load and `THEME` to chose theme variables together
+<p align="center">
+  Webpack feature to provide your custom environment variables in client side
+</p>
+
+<p align="center">
+  Use `BUILD_ENV` to chose wich environment file to load and `THEME` to chose theme variables together
+</p>
 
 ## Install
 
