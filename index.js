@@ -1,3 +1,5 @@
-import cachedVariables from "./cachedVariables.json"
+const cachedVariablesJson = require("./cachedVariables.json")
 
-module.exports = cachedVariables || {}
+const cachedVariables = cachedVariablesJson || {}
+
+module.exports = cachedVariables
