@@ -1,6 +1,6 @@
 {
   "name": "gatsby-env-variables",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Use your env variables in client side",
   "main": "index.js",
   "repository": "git@github.com:luanbitar/gatsby-env-variables.git",
