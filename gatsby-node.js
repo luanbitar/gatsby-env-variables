@@ -2,12 +2,12 @@ const fs = require("fs")
 
 exports.onCreateWebpackConfig = async (
   { actions, plugins, reporter },
-  { envFolderPath = "env/" }
+  { envFolderPath = "env/", customEnvFolderPath}
 ) => {
   const activeEnv =
     process.env.BUILD_ENV || process.env.NODE_ENV || "development"
   const theme = process.env.THEME || null
-  const basePath = `${process.cwd()}/${envFolderPath}`
+  const basePath = customEnvFolderPath ?? `${process.cwd()}/${envFolderPath}`
   async function getEnvs(fileName) {
     const envsPromise = require(`${basePath}${fileName}`)
     const envs = await Promise.resolve(envsPromise)
